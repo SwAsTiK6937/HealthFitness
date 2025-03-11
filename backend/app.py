@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, send_file
 from config import DB_CONFIG
 from flask import Flask, render_template
 from routes import create_app
@@ -13,7 +13,7 @@ import MySQLdb.cursors
 from flask import Flask, render_template, request, redirect, url_for, session, flash
 
 
-app = Flask(__name__)
+app = Flask(__name__, template_folder="C:\\Users\\swast\\OneDrive\\Desktop\\ProjVS\\HealthFitness\\backend\\templates")
 app.secret_key = 'supersecretkey'  # Change this for security
 
 # MySQL Configuration
@@ -82,7 +82,7 @@ def login():
             flash("No user found. Please register first.", "warning")
             return redirect(url_for('register'))
 
-    return render_template('login.html')
+    return render_template("login.html")
 
 
 # Logout Route
